@@ -422,7 +422,7 @@ def userLoggedIn():
 def main():
    
 
-    st.title("Out Patient Management System")
+    st.title("Clinic Management System")
 
     # Initialize session state
     if 'logged_in' not in st.session_state:
@@ -435,16 +435,16 @@ def main():
 
     # Toggle between login and signup
     if st.session_state['show_signup']:
-        st.subheader("New User Sign Up")
-        new_userid = st.text_input("New User ID")
-        new_password = st.text_input("New Password", type="password")
+        st.subheader("Sign Up")
+        new_userid = st.text_input("User ID")
+        new_password = st.text_input("Create Password", type="password")
         new_role = st.selectbox("Role", ["nurse", "doctor", "admin"])
 
         # Create two columns
         col1, col2, col3 = st.columns([2, 1, 1])
         # Sign UP Button (left side)
         with col1:
-            if st.button("New User Sign Up"):
+            if st.button("Sign Up"):
                 if new_userid == '' or new_password =='':
                     st.error('enter valid credentials')
                     st.session_state['show_signup'] = False
@@ -491,7 +491,7 @@ def main():
 
             # Sign Up Button  (right side)
             with col3:        
-                if st.button("New User Sign Up"):
+                if st.button("Sign Up"):
                     st.session_state['show_signup'] = True
                     st.rerun()
         else:
